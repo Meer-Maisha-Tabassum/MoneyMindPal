@@ -1,7 +1,3 @@
-Here is a detailed `README.md` file in **GitHub format** based on the two files you provided (`main.py` and `chatbot.py`):
-
----
-
 ````markdown
 # 💰 Money Mind Pal — Personal Finance Dashboard with AI Chat Assistant
 
