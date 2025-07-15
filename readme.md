@@ -187,11 +187,11 @@ The application fetches data from a public CSV file. For all features to work co
 
 ## 📷 Screenshots
 
-*(You can replace these placeholders with your own screenshots inside the `assets/` folder)*
-
 #### **Dashboard View**
+![Dashboard Screenshot](./dashboard.jpg)
 
 #### **AI Chatbot Interface**
+![Chatbot Screenshot](./chatbot.jpg)
 
 -----
 
