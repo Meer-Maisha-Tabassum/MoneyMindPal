@@ -1,5 +1,5 @@
 ````markdown
-# 💰 Money Mind Pal — Personal Finance Dashboard with AI Chat Assistant
+💰 Money Mind Pal — Personal Finance Dashboard with AI Chat Assistant
 
 Money Mind Pal is an interactive **Streamlit-based financial dashboard** enhanced with an **AI-powered chatbot assistant**. It helps users visualize their spending and saving habits, ask financial questions via text or voice, and receive intelligent, data-driven insights — all from their transaction history.
 
