@@ -1,160 +1,173 @@
-````markdown
-#Money Mind Pal — Personal Finance Dashboard with AI Chat Assistant
+-----
 
-Money Mind Pal is an interactive **Streamlit-based financial dashboard** enhanced with an **AI-powered chatbot assistant**. It helps users visualize their spending and saving habits, ask financial questions via text or voice, and receive intelligent, data-driven insights — all from their transaction history.
+# Money Mind Pal: Personal Finance Dashboard & AI Assistant
 
----
+Money Mind Pal is an interactive web application built with Streamlit designed to help users visualize and understand their financial data. It features a comprehensive dashboard with various charts and a conversational AI chatbot to answer financial questions in natural language.
 
-## 📊 Features
+*(Suggestion: Replace the placeholder above with a screenshot or GIF of your running application.)*
 
-### 🔹 Streamlit Dashboard (`main.py`)
-- 📈 Visualizes total deposits and withdrawals by month using Plotly charts.
-- 🧮 Cleans and processes CSV financial transaction data.
-- 🖼️ Stylish sidebar branding with logo and title.
-- 🔔 Custom notification dropdown with user tips.
-- 🧠 Simple and accessible UI to trigger the financial dashboard.
+-----
 
-### 🔹 AI Chatbot Assistant (`chatbot.py`)
-- 💬 Interactive financial Q&A via chat interface.
-- 🎙️ Voice recognition support (Speech-to-Text using `speech_recognition`).
-- 🤖 Answers finance-related prompts using OpenAI's `gpt-3.5-turbo` model.
-- 📊 Automatically renders context-based charts for:
-  - Withdrawals by month
-  - Deposits by month
-  - Spending distribution by category
-- 🔐 Includes hardcoded OpenAI API key (for demo purposes; replace for security).
-- 🧠 Some hardcoded logic for quick queries:
-  - Grocery budget exceeded
-  - Transportation cost as % of income
-  - Savings prediction (with formula shown)
+## 📋 Table of Contents
 
----
+  - [Features](https://www.google.com/search?q=%23-features)
+  - [Technologies Used](https://www.google.com/search?q=%23-technologies-used)
+  - [Setup and Installation](https://www.google.com/search?q=%23-setup-and-installation)
+  - [How to Use](https://www.google.com/search?q=%23-how-to-use)
+  - [Project Structure](https://www.google.com/search?q=%23-project-structure)
+  - [Future Improvements](https://www.google.com/search?q=%23-future-improvements)
 
-## 📁 Project Structure
+-----
+
+## ✨ Features
+
+This project is composed of two main components: a Financial Dashboard and a Chatbot Assistant.
+
+### 💹 Financial Dashboard (`main.py`)
+
+  - **Interactive Visualizations**: Clean and intuitive charts to explore your financial history.
+  - **Withdrawal Analysis**: A horizontal bar chart showing total withdrawal amounts broken down by category.
+  - **Trend Tracking**: Line charts displaying total monthly deposits and withdrawals to identify patterns over time.
+  - **Spending Distribution**: A pie chart that illustrates the percentage of spending across different categories.
+  - **Key Metrics**: At-a-glance summary of total deposit and withdrawal amounts.
+  - **Personalized Notifications**: A notification system provides helpful tips and alerts based on spending habits (e.g., spending limit warnings, coffee purchase streaks).
+
+### 🤖 AI Chatbot Assistant (`chatbot.py`)
+
+  - **Conversational Interface**: Ask questions about your financial data using natural language.
+  - **OpenAI Integration**: Leverages the power of GPT-3.5-Turbo to understand queries and provide intelligent responses.
+  - **Voice-to-Text**: Use your microphone to ask questions with the integrated speech recognition feature.
+  - **On-Demand Graphs**: Ask the chatbot to generate and display specific graphs (e.g., "show me a graph of my withdrawals").
+  - **Financial Projections**: Includes a predictive feature to forecast future savings based on current habits and inputs.
+
+-----
+
+## 🛠️ Technologies Used
+
+  - **Backend/Framework**: Python, Streamlit
+  - **Data Manipulation**: Pandas, NumPy
+  - **Data Visualization**: Plotly Express, Matplotlib, Seaborn
+  - **AI & NLP**: OpenAI API
+  - **Speech Recognition**: SpeechRecognition
+  - **Utilities**: subprocess, calendar, json, os
+
+-----
+
+## ⚙️ Setup and Installation
+
+Follow these steps to get the project running on your local machine.
+
+**1. Clone the Repository**
 
 ```bash
-.
-├── main.py         # Streamlit dashboard UI
-├── chatbot.py      # AI chatbot with OpenAI & voice input
-├── requirements.txt  # (recommended) install dependencies
-└── README.md       # Project documentation
-````
-
----
-
-## 🔧 Setup Instructions
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/your-username/your-repository-name.git
+cd your-repository-name
 ```
 
-### 2. Install Dependencies
+**2. Create a Virtual Environment (Recommended)**
 
-We recommend using a virtual environment.
+```bash
+# For Windows
+python -m venv venv
+venv\Scripts\activate
+
+# For macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**3. Install Dependencies**
+Create a file named `requirements.txt` and add the following libraries to it:
+
+```txt
+streamlit
+pandas
+plotly
+openai
+matplotlib
+seaborn
+SpeechRecognition
+numpy
+```
+
+Then, install them using pip:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Or manually install the core packages:
+*Note: You may also need to install `PyAudio` for the speech recognition feature to work.*
 
-```bash
-pip install streamlit pandas openai seaborn matplotlib plotly speechrecognition
+**4. Configure OpenAI API Key**
+
+> **⚠️ Security Warning\!**
+> The provided `chatbot.py` file contains a hardcoded OpenAI API key. This is a significant security risk. You should immediately invalidate that key and use a secure method to store your new key.
+
+Open the `chatbot.py` file and replace the hardcoded key with your own. It is highly recommended to use environment variables for this.
+
+**Replace this:**
+
+```python
+api_key = "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" # Your hardcoded key
+openai.api_key = api_key
 ```
 
-### 3. Run the Streamlit App
+**With this:**
 
-To launch the AI chatbot:
+```python
+import os
 
-```bash
-streamlit run chatbot.py
+# Load the key from an environment variable
+api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = api_key
 ```
 
-To launch the dashboard view:
+You would then set the environment variable in your terminal before running the app.
+
+-----
+
+## 🚀 How to Use
+
+**1. Running the Main Dashboard**
+To start the main financial dashboard, run the following command in your terminal:
 
 ```bash
 streamlit run main.py
 ```
 
----
+This will open the application in your default web browser.
 
-## 🧠 Sample Dataset
+**2. Using the Chatbot**
+The main dashboard has a "Chatbot" button in the sidebar. Clicking it attempts to launch the `chatbot.py` application in a new process.
 
-Both files fetch data from this public CSV URL:
+Alternatively, you can run the chatbot directly from your terminal:
 
-```
-https://raw.githubusercontent.com/NafeesSadat/Hackathon2024/main/UMH24%20-%20FinTech%20Dataset.xlsx%20-%20Ahmad.csv
-```
-
-The dataset should contain at least the following columns:
-
-* `DATE`
-* `WITHDRAWAL AMT`
-* `DEPOSIT AMT`
-* `CATEGORY`
-
----
-
-## 🔐 Security Note
-
-> ⚠️ Your OpenAI API key is currently **hardcoded** in `chatbot.py`:
-
-```python
-api_key = "sk-..."
+```bash
+streamlit run chatbot.py
 ```
 
-For security:
+-----
 
-* Use `os.environ["OPENAI_API_KEY"]` or
-* Store the key in a `.env` file and load using `python-dotenv`.
+## 📁 Project Structure
 
----
-
-## 🚀 Example Prompts to Try
-
-* **"Did I exceed my grocery budget last month?"**
-* **"How much do I spend on transportation as a percentage of income?"**
-* **"Give me a savings prediction for 12 months."**
-* **"Show me the graph for deposits."**
-* **"What is the category-wise spending distribution?"**
-
-You can also click the **"Use Speech to Text"** button and speak your query!
-
----
-
-## 📷 Screenshots
-
-| Dashboard                            | AI Chatbot                       |
-| ------------------------------------ | -------------------------------- |
-| ![dashboard](./assets/dashboard.png) | ![chatbot](./assets/chatbot.png) |
-
-> **(Replace with your actual screenshots in an `assets/` folder)**
-
----
-
-## 📌 License
-
-MIT License. Free to use and adapt.
-
----
-
-## 👨‍💻 Author
-
-Made with ❤️ for **Hackathon 2024**
-By \Meer Maisha Tabassum
-
----
-
-## 🙏 Acknowledgements
-
-* [Streamlit](https://streamlit.io/)
-* [OpenAI API](https://platform.openai.com/)
-* [SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
-* [Plotly](https://plotly.com/python/)
-* [Pandas](https://pandas.pydata.org/)
-* [Seaborn + Matplotlib](https://seaborn.pydata.org/)
+Here is the basic file structure for the project:
 
 ```
+.
+├── main.py             # Main Streamlit app for the dashboard
+├── chatbot.py          # Streamlit app for the AI assistant
+├── myLogo.png          # Logo file used in the dashboard
+├── animation_5.gif     # Animation file used in the dashboard
+├── requirements.txt    # List of Python dependencies
+└── README.md           # This file
+```
+
+-----
+
+## 🔮 Future Improvements
+
+  - **Secure API Key Management**: Fully integrate environment variables or a `.env` file for storing the OpenAI API key.
+  - **Dynamic Notifications**: Replace the hardcoded dashboard notifications with alerts generated dynamically from the user's data.
+  - **Seamless App Integration**: Combine the two Streamlit apps into a single, multi-page application instead of using `subprocess`.
+  - **Improved Chatbot Context**: Remove hardcoded chatbot responses and improve its ability to derive all insights directly from the provided financial data.
+  - **User Authentication**: Implement a login system to allow multiple users to manage their own financial data securely.
